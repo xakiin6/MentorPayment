@@ -28,6 +28,8 @@ using `dotnet publish --configuration Release`
  
  The production build is in `dist/` directory , you can use any web server to run the application also the API and Identity Server publishes are in `bin/Release`, you can use `dotnet run` to run it or use `IIS web server`.
 
+## Application Screenshot
+![Application Screenshot](screenshot.gif)
 
  ## Author
  Abdihakin Abdullahi
