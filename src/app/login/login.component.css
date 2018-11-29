@@ -1,0 +1,78 @@
+::ng-deep .side-right-login main {
+  width: 100%!important;
+}
+
+
+
+
+
+
+
+.LoginHeader {
+  background: #4b00d1;
+  top:0;
+    
+    padding:0;
+    width: calc(100%);
+    border: 1px solid transparent;
+    border-color: #080808;
+    border-width: 0 0 1px;
+    justify-content: center;
+    max-height: 50px;
+}
+.LoginHeader div {
+  background-color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  
+  
+}
+.login-form {
+    margin-right: auto;
+    margin-left:auto;
+  
+}
+
+
+.LoginHeader h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.65rem;
+  margin: 0;
+ font-weight: 300;
+  color:#fff;
+  height: 50px;
+    padding: 15px 15px;
+ 
+    line-height: 20px;
+}
+
+.container h2 {
+  font-size: 18px;
+  font-weight: 400;
+}
+.container h1,h2,.LoginHeader h1,h2 {
+ text-align: center;
+}
+  p {
+      color: #a94442;
+      text-align: center;
+  }
+
+  @media screen and (min-width: 435px)
+{
+.container {
+  width: calc(100% - 30px);
+
+}
+}
+@media screen and (max-width: 361px)
+{
+.login-form {
+  margin-top: 30px;
+
+}
+.LoginHeader h2 {
+  font-size: 2rem;
+}
+}

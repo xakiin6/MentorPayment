@@ -1,0 +1,4 @@
+<div  class="container" *ngIf="messageService.messages.length">
+    <div role="alert" aria-live="assertive" *ngFor='let message of messageService.messages' class="alert {{message.type}}" [innerHTML]='this.domSanitizer.bypassSecurityTrustHtml(message.message)' >  </div>
+  
+  </div>

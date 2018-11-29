@@ -1,0 +1,44 @@
+
+  <div class="layout">
+    <div class="side-left" *ngIf="this.authService.isLoggedIn()" >
+      <div id="side-title">
+        <h1><i class="fas fa-chevron-down"></i> <span> MAYMA</span></h1>
+      </div>
+      <div id="menuesContainer">
+      <ul class="side-menu" >
+        <li><a aria-label="Overview page" routerLink="/dashboard" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"><span class="link-icon"><i class="fa fa-eye"></i></span><span class="link-text"><i class="fa fa-eye"></i> Overview</span></a></li>
+        <li><a aria-label="Mentor payment page" routerLink="/classpayments" routerLinkActive="active"><span class="link-icon"><i class="fa fa-book"></i></span><span class="link-text"><i class="fa fa-book"></i> Mentor payments</span></a></li>
+        <li><a aria-label="Review payment page" routerLink="/projectpayments" routerLinkActive="active"><span class="link-icon"><i class="fa fa-project-diagram"></i></span><span class="link-text"><i class="fa fa-project-diagram"></i>  Reviews payment</span></a></li>
+        <li><a aria-label="Review rating page" routerLink="/rating" routerLinkActive="active"><span class="link-icon"><i class="fa fa-star"></i></span><span class="link-text"><i class="fa fa-star"></i>  Rating</span></a></li>
+        <li><a aria-label="Income summary page" routerLink="/incomeSummary" routerLinkActive="active"><span class="link-icon"><i class="fa fa-chart-line"></i></span><span class="link-text"><i class="fa fa-chart-line"></i>  Income Summary</span></a></li>
+      </ul>
+      <div class="account-logoff">
+          <ul class="side-menu">
+              <li><a aria-label="Click here to update Settings" href="dashboard#Settings-dialog" routerLinkActive="active"><span class="link-icon"><i class="fa fa-cog"></i></span><span class="link-text"><i class="fa fa-cog"></i> Settings</span></a></li>  
+            <li><a aria-label="Click here to logout" routerLink="/login" routerLinkActive="active"><span class="link-icon"><i class="fa fa-sign-out-alt"></i></span><span class="link-text"><i class="fa fa-sign-out-alt"></i> Logout</span></a></li>
+              
+            </ul>
+      </div>
+    </div>
+    </div>
+    <div [ngClass]="{'side-right':this.authService.isLoggedIn(),'side-right-login':!this.authService.isLoggedIn()}">
+        <header *ngIf="this.authService.isLoggedIn()">
+          <nav>
+            <h2>{{ this.mService.getTitle()}}</h2>
+            <span style="float:right; margin-top:-35px;"><i style="color:green" class="fas fa-user"></i> {{this.authService.getUserName()}}</span>
+          </nav>
+          </header>
+          <main> 
+              <router-outlet></router-outlet>
+              <app-messages *ngIf="this.authService.isLoggedIn()" ></app-messages>
+      </main>
+      <footer *ngIf="this.authService.isLoggedIn()">
+        <div>
+        <h2> Copyright &copy; 2018</h2>
+      </div>
+      </footer>
+    </div>
+
+  </div>
+  
+

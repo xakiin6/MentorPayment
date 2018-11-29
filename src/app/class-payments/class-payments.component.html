@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="roundedButton"><a aria-label="Add new class payment" href="/classpayments#Class-dialog"><i class="fas fa-plus-circle"></i></a></div>
+  <h3>Class Payments</h3>
+  <hr>
+  <div class="box">
+      <div id="Class-dialog" class="overlay">
+          <div class="popup">
+            <h1>Add Class Payment</h1>
+            
+            <div class="content">
+  <form  class="payment-form">
+    <div>
+    <label>Week</label>
+    <input type="date" name="week" [(ngModel)]="newPayment.week">
+  </div>
+    <div><label>Total</label>
+    <input type="number" name="total" [(ngModel)]="newPayment.total">
+  </div>
+  <div> <label>Paid</label>
+    <input type="checkbox" name="paid" [(ngModel)]="newPayment.paid">
+  </div>
+  <div><label>Date</label>
+    <input type="date" name="pDate" [(ngModel)]="newPayment.pDate"></div>
+<div>
+  <div style="float: right"><a class="close" href="/classpayments#">&times; Close</a></div>
+    <button (click)="showForm(newPayment)" type="button">Add New</button>
+</div>
+
+  </form>
+
+  </div>
+  </div>
+  </div>
+    <table>
+          
+         <thead> <tr><th class="xs-hidden">Week</th><th>#Students</th><th>Total</th><th>Paid</th><th class="xs-hidden">Date</th><th></th></tr></thead>
+  <tr *ngFor ="let class of payment| reverse | paginate: { itemsPerPage: 8, currentPage: p }" [ngClass]="{'paid-row' : class.paid}"  >
+    <td class="xs-hidden">
+      <span [ngClass]="{'txt-visible' : class.isvisible}">
+      
+    Week of {{class.week |date:'ww'}}
+    </span>
+    <input [ngClass]="{'input-visible' : !class.isvisible}" id="week" name="week" [(ngModel)]="class.week" type="date"></td>
+    <td >{{class.students}}</td>
+  <td><span [ngClass]="{'txt-visible' : class.isvisible}">{{class.total}}</span><input [ngClass]="{'input-visible' : !class.isvisible}" id="total" name="total" [(ngModel)]="class.total" type="number"></td>
+  <td ><span [ngClass]="{'txt-visible' : class.isvisible}">{{class.paid}}</span><input [ngClass]="{'input-visible' : !class.isvisible}" id="paid" name="paid" [(ngModel)]="class.paid" type="checkbox"></td>
+  <td class="xs-hidden"><span [ngClass]="{'txt-visible' : class.isvisible}">{{class.pDate | date}}</span><input [ngClass]="{'input-visible' : !class.isvisible}" id="pDate" name="pDate" [(ngModel)]="class.pDate" type="date"></td>  
+  <td><button attr.aria-label="{{!class.isvisible?'Edit':'Save'}} class payment week {{class.week | date}}" (click)="editPayment(class)" type="button"><i class="fas" [ngClass]="{'fa-edit' : !class.isvisible,'fa-save' : class.isvisible}"></i></button></td>
+  </tr>
+  
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>

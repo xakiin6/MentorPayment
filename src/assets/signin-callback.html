@@ -1,0 +1,20 @@
+<script src="js/oidc-client.min.js"></script>
+<script>
+//Oidc.Log.logger = console;
+//Oidc.Log.level = Oidc.Log.INFO;
+const settings ={
+    userStore: new Oidc.WebStorageStateStore({store:window.localStorage})
+};
+var mgr = new Oidc.UserManager(settings);
+  mgr.signinRedirectCallback().then(function (user) {
+     // console.log(JSON.stringify(user));
+      window.localStorage.setItem('authenticated','true'); 
+      window.localStorage.setItem('access_token',user.access_token.toString());
+           window.history.replaceState({},
+            window.document.title,
+            window.location.origin + window.location.pathname);
+        window.location = "/dashboard";
+    }).catch(error => {
+        console.error(error);
+    });
+</script>

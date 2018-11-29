@@ -1,0 +1,91 @@
+<div class="container greating">
+    <h2>Welcome to Mentorship     </h2>
+  </div>
+<div class="container">
+    <div class="exchange-rates">
+       
+            <span class="color-gray">Xe : {{this.pService.getXeExchangeRate() | number:'0.1-2'}}
+            </span>
+            <span class="color-brown">Payoneer : {{this.pService.getPayoneerRate() | number:'0.1-2'}}
+              </span>
+        </div>
+  <h3>Payment stats </h3>
+  
+  <hr>
+  <div *ngIf="!statis">
+    <i class="fas fa-spinner fa-3x fa-spin"></i>
+  </div>
+  <div *ngIf="statis" class="payment-summary">
+<div class="box col">
+  <span class="span-title"> Paid this month</span>
+  <span class="span-footer color-white"></span>
+  <span style="display:flex;width:100%;padding: 10px;justify-content: center;">
+    <i class="fas fa-chart-line fa-4x"></i>
+  <div class="p-text-USD"> <p>USD {{statis?.Paid}}</p></div>
+</span>
+  <p class="p-text-GBP">{{this.pService.localCurrency}} {{statis?.Paid*this.pService.getPayoneerRate() | number}}</p>
+
+</div>
+<div class="box col">
+    <span class="span-title"> Due this month</span>
+  <span class="span-footer color-yellow"></span>
+  <span style="display:flex;width:100%;padding: 10px;justify-content: center;">
+    <i class="fas fa-chart-bar fa-4x"></i>
+  <div class="p-text-USD"><p >USD {{statis?.MidNextMonth}}</p></div>
+</span>
+
+  <p class="p-text-GBP">{{this.pService.localCurrency}} {{statis?.MidNextMonth*this.pService.getPayoneerRate() | number}}</p>
+  
+  </div>
+<div class="box col">
+  <span class="span-title">Due next month</span>
+  <span class="span-footer color-gray"></span>
+  <span style="display:flex;width:100%;padding: 10px;justify-content: center;">
+  <span style=" padding: 8px;     margin: auto;
+  border-radius: 20px;"   [ngClass]="{'color-success':(statis?.Unpaid-statis?.daysAvg > 0 ? true : false),'color-error': (statis?.Unpaid-statis?.daysAvg < 0 ? true : false) }" [innerHTML]="(statis?.Unpaid-statis?.daysAvg) > 0 ? '&uarr; %'+((statis?.Unpaid/statis?.daysAvg)| number )  : '&darr; %'+((statis?.Unpaid/statis?.daysAvg) | number)"></span>
+  
+  <div class="p-text-USD"> <p>USD {{statis?.Unpaid}} </p></div>
+  </span>
+  <p class="p-text-GBP">{{this.pService.localCurrency}} {{statis?.Unpaid*this.pService.getPayoneerRate() | number}}</p>
+  
+</div>
+<div class="box col">
+  <span class="span-title"> Total Due</span>
+  <span class="span-footer color-gray"></span>
+  <span style="display:flex;width:100%;padding: 10px;justify-content: center;">
+    <i class="fas fa-money-check-alt fa-4x"></i>
+  <div class="p-text-USD"><p>USD {{statis?.MidNextMonth+statis?.Unpaid}}</p></div>
+</span>
+  <p class="p-text-GBP" step="0.01">{{this.pService.localCurrency}} {{(statis?.MidNextMonth+statis?.Unpaid)*this.pService.getPayoneerRate() | number}}</p>
+  
+</div>
+</div>
+<div  class="payment-chart">
+
+<div class="col">
+    <div *ngIf="charts" style="position: relative">
+        <canvas id="chartCanvas">{{ charts }}</canvas>
+      </div>
+</div>
+
+  </div>
+</div>
+
+
+<div id="Settings-dialog" class="overlay">
+  <div class="popup">
+    <h2>Exchange Setting</h2>
+    
+    <div class="content">
+      <label>Payoneer Exchange rate :</label>
+      <input type="number" [(ngModel)]="Payoneer_Exchange" id="Payoneer_Exchange" name="Payoneer_Exchange">
+
+      <label>XE Exchange rate :</label>
+      <input type="number" [(ngModel)]="Xe_Exchange" id="Xe_Exchange" name="Xe_Exchange">
+      <label>Local currency :</label>
+      <input type="text" [(ngModel)]="this.pService.localCurrency" id="localCurrency" name="localCurrency">
+      <a class="close" href="#">&times; Close</a>
+      <button (click)="updateExchange()" type="submit">Update</button>
+    </div>
+  </div>
+</div>

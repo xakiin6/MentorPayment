@@ -1,0 +1,23 @@
+<div class="container">
+  <h3>Income Summary</h3>
+  <div style="display:flex; flex-wrap:nowrap;float:right;color: #6d6a6a;width:100%; justify-content: flex-end;"> <div style="padding:5px;">From:  {{pService.getMonthLabels()[0]}} 2018</div><div style="padding:5px;">-</div><div style="padding:5px;">To:   {{pService.getMonthLabels()[Lists.length-1]}} 2018</div></div> 
+
+
+<hr>
+ <div class="box">
+   <table id="incomeTable">
+    <thead>  <tr ><th></th><th class="xs-hidden" *ngFor="let c of pService.getMonthLabels()">{{c | slice:0:3}}</th><th>Avg</th><th>Total</th></tr></thead>
+     <tr ><th>USD</th><td class="xs-hidden" *ngFor="let d of Lists">${{d}}</td><td>${{(listSummary/Lists.length)| number:'0.1-2'}}</td><td>${{listSummary| number:'0.1-2'}}</td></tr>
+     <tr ><th>GBP</th><td class="xs-hidden" *ngFor="let e of Lists">£{{e*this.pService.getPayoneerRate()| number:'0.1-2'}}</td><td>£{{(listSummary/Lists.length)*this.pService.getPayoneerRate()| number:'0.1-2'}}</td><td>£{{listSummary*this.pService.getPayoneerRate() | number:'0.1-2'}}</td></tr>
+     
+   </table>
+  
+   
+</div>
+
+<div class="box">
+    <canvas id="chartCanvas">{{ charts }}</canvas>
+  </div>
+</div>
+<h6 style='color: #535151; padding: 0px 10px; text-align: center'><b style='color: #a94442;'>NOTICE</b>: The GBP value are priced current Paypal and Payoneer exchange rates and they are for display purpose.</h6>
+<h6 style='color: #535151; padding: 0px 10px; text-align: center'>The correct exchange rates can be found on Paypal statements.</h6>

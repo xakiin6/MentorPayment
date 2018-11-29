@@ -1,0 +1,27 @@
+
+  <div class="container">
+      <h3>Rating by Month</h3>
+  <hr>
+  <div class="rating-summary">
+  <div class="rating-col-0 box">
+      <h4>RATING CARD</h4>
+    <i class="fas fa-star fa-3x"></i>
+  </div>
+  <ul *ngIf="Rating" class="rating-col-1 box">
+    <h4>PER MONTH</h4>
+    <span style="margin-left: -10px;" class="span-footer color-gray"></span>
+    <li style="display: flex; flex-wrap: nowrap; padding-bottom: 10px;" *ngFor="let rate of Rating">
+     <span style="width: 20%; min-width: 105px;color: gray">{{rate.updated_at | date:'MMMM - yyyy'}}</span>
+     <span style="width:5% !important">:</span><span style="width: 20%;color: gray">
+       {{rate.rating/rate.total | number:'1.1-2'}}
+       
+      </span>
+      <span style="width: 6%; size: 12px" *ngFor="let star of stars;index as i"> 
+         <div *ngIf="(i+1)<=(rate.rating/rate.total)" class="checked">&#9733;</div> 
+         <div *ngIf="((i+1)-(rate.rating/rate.total))<1 && ((i+1)-(rate.rating/rate.total))>0" class="checked-half"></div>
+         <div *ngIf="((i+1)-(rate.rating/rate.total))>1">&#9734;</div></span>
+
+    </li>
+  </ul>
+</div>
+</div>

@@ -1,0 +1,12 @@
+<script src="js/oidc-client.min.js"></script>
+<script>
+ const settings ={
+    userStore: new Oidc.WebStorageStateStore({store:window.localStorage})
+};
+  var mgr = new Oidc.UserManager(settings);
+  mgr.signinSilentCallback().catch(error => {
+        console.log(error);
+    }).then(result => {
+        // console.log(result);
+    });
+</script>

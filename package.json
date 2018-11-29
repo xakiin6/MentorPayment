@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "identityserver": "cd..&& cd IdentityServer && dotnet run",
-    "apiserver": "cd..&& cd WebAPI && dotnet run",
+    "identityserver": "cd..&& cd MentorPayment-AuthServer && dotnet run",
+    "apiserver": "cd..&& cd MentorPayment-WebAPI && dotnet run",
     "clientWeb": "ng serve",
     "start": "run-p clientWeb apiserver identityserver",
     "build": "ng build",

@@ -1,0 +1,795 @@
+/* $secondary-background:#efefef;
+$primary-background:#fff;
+$inverse-background:#ffffff78;
+$primary-color:#4d4d4d;
+$shadow-color:rgba(46,61,73,.12);
+$secondary-color:rgb(221, 123, 4);
+$side-left-background:rgba(124, 124, 124, 0.23);
+$inverse-color:#eae9e9; */
+
+$secondary-background:#fff;
+$primary-background:#fff;
+$inverse-background:rgba(255, 255, 255, 0.47058823529411764);
+$primary-color:#000;
+$shadow-color:rgba(46,61,73,.12);
+$secondary-color:#4b00d1;//#036cc6;
+$border-color:#c2c2c2;
+
+$inverse-color:#f7f7f7;
+$side-left-background:#6200ee;//rgba(4, 131, 221, 0.8313725490196079);
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+html,body{
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    background-color: $secondary-background;
+    margin: 0;
+    padding: 0;
+    color: $primary-color;
+    
+}
+header,footer {
+    min-height: 42px;
+    background: $primary-background;
+    min-width: 100%;
+}
+header{
+    box-shadow: 0 0 20px 0 $shadow-color;
+    margin-top: -20px;
+}
+header nav{
+    display: block;
+    padding: 0px;
+}
+
+header h2,
+footer h2 {
+    color:$primary-color;
+    text-align: left;
+    text-transform:uppercase;
+}
+header h2 {
+    font-size: 16px;
+    padding: 14px 0 0 60px;
+    
+}
+
+h3{
+    font-size: 18px;
+    font-weight: 400;
+    color: $primary-color;
+    margin: 0 0 1.5rem;
+}
+footer h2 {
+    font-size: 14px;
+    text-align: center !important;
+}
+footer div {
+    display: block;
+    overflow: hidden;
+}
+main {
+ width: 90%;
+ margin: auto;
+ min-height: calc(100vh - 90px);
+}
+
+.layout{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+}
+
+.side-left {
+    box-shadow: 0 0 20px 0 $shadow-color;
+    min-height: 100vh;
+    min-width: 200px;
+    background: $side-left-background;
+    position: fixed;
+    overflow: hidden;
+}
+.side-left #side-title {
+    background: white;
+    min-height: 30px;
+    margin-top: 0;
+    box-shadow: 0 0 20px 0 rgba(46,61,73,.12);
+    padding-top: 7px;
+    
+    
+}
+
+.side-right {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    
+}
+.side-right-login{
+    width: calc(100%);
+}
+img {
+    width: 100%;
+}
+.side-menu {
+    list-style: none;
+    text-align: left;
+    margin-left: -40px;
+}
+
+.side-menu li {
+    
+    margin: 5px 0;
+   
+}
+.side-menu a {
+ color:$inverse-color;
+ text-decoration: none;
+ display: block;
+ min-height: 38px;
+}
+
+a .fas{
+    color: $primary-color;
+    min-width: 64px;
+    height: 36px;
+}
+a:focus {
+    outline: none;
+}
+a:focus .fas,a:hover .fas {
+    color:$secondary-color;
+}
+
+.link-text {
+    display: block;
+    text-align: justify;
+    padding: 10px;
+}
+span.link-text i {
+    margin-right: 5px;
+}
+.link-icon {
+    display: none;
+    padding: 10px;
+   font-size: 25px;
+}
+.logo{
+    display: block;
+    min-width: calc(100% - 30px);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: url(/assets/Logo-Icon.png) no-repeat;
+    box-sizing: border-box;
+    background-size: contain;
+}
+#side-title h1 { font-size: 20px;
+    padding-left: 10px;
+    margin: 0;
+    color: $secondary-color;
+    font-weight: bold;
+}
+#side-title h1 span { font-size: 20px;
+    padding-left: 10px;
+    margin: 0;
+    color: $secondary-color;
+    font-weight: bold;
+}
+.active {
+    border-bottom: 1px solid $primary-background;
+    border-top: 1px solid $primary-background;
+    border-right: 2px solid $primary-background;
+    background: $secondary-color;
+    font-weight: bold;
+   color: $inverse-color!important;
+}
+.account-logoff {
+
+    padding: 10px;
+    position: absolute;
+    bottom: 30px;
+    min-width: calc(100% - 10px);
+}
+.payment-form {
+    padding: 0;
+    margin: auto;
+    width: 80%;
+} 
+.payment-form div {
+    padding: 5px;
+    width: 100%;
+}
+.payment-form input:not([type='checkbox']),label {
+    display: block;
+    width: 100%;
+}
+
+.login-form {
+    padding: 20px;
+    max-width: 500px;
+    background-color: $primary-background;
+    box-shadow: 0 0 20px 0 $shadow-color;
+    border-radius: 6px;
+    margin-top: 120px;
+}
+
+.login-form input {
+    display: block;
+    padding: 5px;
+}
+
+form.ng-touched
+input.ng-invalid {
+    border-bottom-color: red;
+}
+
+
+
+
+label {
+    max-width: calc(100% - 48px);
+    color: rgba(0,0,0,.6);
+    left: 12px;
+    right: auto;
+    pointer-events: none;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    letter-spacing: .00937em;
+    text-decoration: inherit;
+    text-transform: inherit;
+
+}
+
+h1 {
+    font-size: 20px;
+}
+
+input:not([type='checkbox']) {
+    font-family: Roboto,sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    letter-spacing: .00937em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    padding: 20px 12px 6px;
+    -webkit-transition: opacity .18s cubic-bezier(.4,0,.2,1);
+    -o-transition: opacity .18s cubic-bezier(.4,0,.2,1);
+    transition: opacity .18s cubic-bezier(.4,0,.2,1);
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(0,0,0,.12);
+    background-color: #f5f5f5;
+    border-radius: 4px 4px 0 0;
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input:not(#paid) :hover {
+    border-bottom-color: rgba(0,0,0,.87);
+    outline: none;
+}
+ input:not(#paid):focus {
+    border-bottom-color: $secondary-color;
+    color: $secondary-color;
+    outline: none;
+    
+}
+
+button {
+    margin-top:8px;
+    font-size: .875rem;
+    line-height: 2.25rem;
+    font-weight: 500;
+    letter-spacing: .08929em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    color:$primary-color;
+    padding: 0 14px;
+    background-color: unset;
+    border: 1px solid $border-color;
+    box-shadow: 0 0 20px 0 $shadow-color;
+    box-sizing: border-box;
+    min-width: 64px;
+    height: 36px;
+    
+}
+
+
+button:hover {
+    border:unset;
+    
+    background-color: $secondary-color;
+    outline: unset;
+    color: #fff;
+}
+button:focus {
+    border:unset;
+    background-color: rgba($secondary-color,0.75);
+    outline: unset;
+    color: #fff;
+}
+
+.roundedButton {
+float: right;
+text-decoration: none;
+font-size: 50px;
+margin-top:-15px;
+}
+hr{
+    border: 0.5px solid $border-color;
+}
+
+table {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    border-collapse:collapse;
+}
+
+thead tr th {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px dashed $primary-color;
+    padding: 10px;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+tbody tr th {
+    font-weight: 500
+}
+tr td {
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4em;
+    font-size: 16px;
+    border-bottom: 1px solid #dbe2e8;
+    
+}
+
+#incomeTable td,
+#incomeTable th {
+    border-left: 1px solid #dbe2e8;
+    padding: 10px;
+}
+
+#incomeTable td:first-child,
+#incomeTable th:first-child {
+    border-left:unset;
+}
+
+tr:nth-child(even){
+    background-color: #f5f5f5;
+}
+tbody tr:focus,
+tbody tr:hover td { 
+    border:unset;
+}
+
+tbody tr:hover,
+tbody tr:focus {
+    
+    border: 1px solid #c8a0ff;
+    background-color: #f3ebfe;
+    
+}
+.paid-row {
+    color: rgba($primary-color,0.8);
+}
+table button {
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding: 0;
+    min-width: 100%;
+}
+.container {
+    padding: 15px;
+    width: calc(100%);
+    
+}
+.greating {
+    margin-top: 20px;
+    background: linear-gradient(315deg,$primary-background,$inverse-background);
+    color: $primary-color;
+    border-radius: 6px;
+    
+}
+.exchange-rates {
+ float: right;
+}
+.input-visible {
+    display: none;
+} 
+.txt-visible {
+    display: none !important;
+}
+.exchange-rates span {
+    min-width: 90px;
+    color: $primary-background;
+    display: inline-block;
+    padding: 10px;
+}
+.exchange-rates span:first-child{
+    border-radius:6px 0 0px 6px;
+}
+.exchange-rates span:last-child{
+    border-radius:0px 6px 6px 0px;
+}
+.container h2 {
+    font-size: 18px;
+}
+.box{
+    background-color: $primary-background;
+    box-shadow: 0 0 20px 0 $shadow-color;
+    border-radius: 6px;
+    margin: 5px;
+   // border: 1px solid #c2c2c2;
+    
+}
+.checked {
+    color: orange;
+}
+.checked-half{
+    color: #4d4d4d;
+    
+}
+.checked-half:after {
+    content:'\2605';
+    color: orange;
+    position: absolute;
+    
+    width: 10px;
+    overflow: hidden;
+}
+
+.payment-summary,.payment-chart,.rating-summary {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.rating-summary h4,
+.rating-summary p {
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+.rating-col-0 {
+    padding: 10px;
+    width: calc(20% - 10px);
+    background: linear-gradient(300deg,$side-left-background 50%,$secondary-color 50%);
+    color: $primary-background;
+    display: block;
+    text-align: center;
+    
+    
+}
+.rating-col-1 {
+    padding: 10px;
+    width: calc(80% - 10px);
+    
+}
+.rating-col-1 span {
+color: $primary-color;
+text-transform: uppercase;
+text-align: left;
+}
+.col {
+    padding: 20px 10px 0;
+    min-width:calc((100% - 40px)/4);
+    position: relative;
+
+
+}
+#chartCanvas {
+    display: block;
+    width: 100% !important;
+}
+.payment-chart .col:last-child {
+    width:calc(100% - 10px);
+    background: $primary-background;
+    box-shadow: 0 0 20px 0 $shadow-color;
+    border-radius: 6px;
+    margin:5px;
+}
+.span-title {
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    font-weight: normal;
+}
+.span-title .fas {
+    opacity: 0.08;
+    position: absolute;
+    margin-top: 30px;
+}
+.payment-chart .span-title .fas {
+    margin-left: -32px;
+    margin-top: 35px;
+    overflow: hidden;
+}
+.fa-4x {
+   
+    color: #c2c2c2;
+}
+.p-text-USD {
+    color: $primary-color;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 0;
+    margin: 1px;
+    letter-spacing: 0.01rem;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 50%;
+    max-height: 100%;
+    overflow: auto;
+}
+.p-text-GBP {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0px;
+}
+
+.span-title,
+.p-text-USD,.p-text-GBP {
+   
+    text-align: center;
+    display: block;
+}
+
+.span-footer {
+    display: inline-block;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    height: 1px;
+    margin-bottom: 0px;
+   
+    
+}
+.color-success {
+    color: #3c763d;
+    background-color: #e9ffe1;
+    border-color: #3c763d;
+}
+.color-error {
+    color: #fff;
+    background-color: #b00020;
+    border-color: #b00020;
+}
+.color-info {
+    
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    
+}
+.color-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.color-brown {
+    background: linear-gradient(300deg,$side-left-background,$secondary-color);
+}
+.color-gray {
+
+background: linear-gradient(160deg,$primary-color,$primary-color);
+}
+.color-white {
+    background: linear-gradient(60deg,$border-color 0%,$border-color 10%,$border-color 20%);
+}
+.color-yellow {
+    background: linear-gradient(200deg,$border-color,$border-color);
+}
+/* 
+* Dialog box styles
+*/
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: $primary-background;
+    border-radius: 5px;
+    width: calc(60% - 40px);
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: $primary-color;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 18px;
+  }
+  .popup .close {
+    position: absolute;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: $primary-color;
+    display: block;
+    margin-top: 8px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    min-width: 64px;
+    
+  }
+  .popup .close:hover {
+    color: $secondary-color;
+  }
+  .popup .content {
+    
+    width: 100%;
+  }
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-radius: 4px;
+    z-index: 1000;
+    position: fixed;
+    bottom: 1vh;
+    width: calc(72% - 30px);
+    
+}
+
+@media screen and (max-width:769px) {
+    main {
+        width: 100%;
+    }
+    .popup {
+        margin: 20% auto;
+        width: calc(90% - 40px);
+    }
+    .col {
+        
+        min-width:calc((100% - 20px)/2);
+        }
+        
+
+            .rating-col-0,.rating-col-1 {
+                width: calc(100% - 10px);
+            }
+   .payment-chart .col:first-child {
+    min-width:calc(100% - 10px);
+   }
+        .side-right {
+            width: calc(100% - 65px);
+            margin-left: 65px;
+        }
+        .side-left{
+            min-width: 65px;
+            max-width: 65px;
+        }
+     .side-menu {   margin-left: -40px;}
+.link-text {
+    display: none;
+}
+
+.link-icon {
+    display: block;
+    text-align: center;
+}
+.payment-form {
+    display: unset;
+}
+#side-title h1 span { display: none;
+}
+#side-title h1 { 
+    font-size: 30px;
+    text-align: center;
+    padding: 0px;
+    margin-top: -5px;
+}
+.alert { 
+    width: calc(77% - 30px)
+}
+}
+
+@media screen and (max-width:434px) {
+    header h1 {
+        font-size: 18px;
+    }
+    main {
+        width: 100%;
+    }
+    .container {
+        padding: 5px;
+        width: calc(100%);
+    }
+    .col,.payment-chart .col:first-child {
+        min-width:calc(100% - 10px);
+        }
+        .col:last-child {
+            min-width:calc(100% - 10px);
+        }
+        .xs-hidden {
+            display: none;
+        }
+        .exchange-rates {
+            float: unset;
+           }
+           tr td,
+           tr th {
+            padding: 0 4px 0;
+            height: 35px;
+        }
+        .popup {
+            margin: 10% auto;
+            width: calc(100% - 40px);
+        }     
+}
+
+@media screen and (max-width:321px) {
+    .popup {
+        margin: 0 auto;
+        width: calc(100% - 40px);
+    }
+}
+
+@media screen and (min-width:863px) and (max-width:1004px) {
+table td {
+    font-size: 13px;
+}
+}
+
+@media screen and (min-width:788px) and (max-width:863px) {
+    table td {
+        font-size: 10px;
+    }
+    }
+
+    @media screen and (min-width:435px) and (max-width:787px) {
+        table td {
+            font-size: 8px;
+        }
+        }
+// Print  CSS Rules
+@media print  {    .side-left,header {
+    display:none;
+}
+.side-right {
+    margin-left:0;
+    width:100%;
+}
+}

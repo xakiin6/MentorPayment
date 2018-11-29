@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="roundedButton"><a aria-label="Add new project payment" href="/projectpayments#Project-dialog"><i class="fas fa-plus-circle"></i></a></div>
+  <h3>Project Payments</h3>
+  <hr>
+   <div class="box">
+      <div id="Project-dialog" class="overlay">
+          <div class="popup">
+            <h1>Add Project Payment</h1>
+            
+            <div class="content">
+      <form  class="payment-form">
+        <div>
+        <label>Month</label>
+        <input type="date" name="month" [(ngModel)]="newPayment.month">
+      </div>
+        <div><label>Projects</label>
+        <input type="number" name="projects" [(ngModel)]="newPayment.projects">
+      </div>
+      <div><label>Total</label>
+        <input type="number" name="total" [(ngModel)]="newPayment.total">
+      </div>
+      <div> <label>Paid</label>
+        <input type="checkbox" name="paid" [(ngModel)]="newPayment.paid">
+      </div>
+      <div><label>Date</label>
+        <input type="date" name="pDate" [(ngModel)]="newPayment.pDate"></div>
+        <div>
+            <div style="float: right"><a class="close" href="/projectpayments#">&times; Close</a></div>
+              <button (click)="showForm(newPayment)" type="button">Add New</button>
+          </div>
+      </form>
+      </div>
+      </div>
+      </div>
+    <table>
+        
+     <thead>   <tr><th class="xs-hidden">Month</th><th >#Projects</th><th>Total</th><th>Paid</th><th class="xs-hidden">Date</th><th></th></tr></thead>
+<tr *ngFor ="let project of payment | reverse| paginate: { itemsPerPage: 8, currentPage: p }" [ngClass]="{'paid-row' : project.paid}" >
+  <td class="xs-hidden">
+   
+      
+   {{project.month | date:'MMM-yyyy'}}
+       
+  
+  </td>
+  <td ><span [ngClass]="{'txt-visible' : project.isvisible}">{{project.projects}}</span><input [ngClass]="{'input-visible' : !project.isvisible}" id="projects" name="projects" [(ngModel)]="project.projects" type="number"></td>
+  <td><span [ngClass]="{'txt-visible' : project.isvisible}">{{project.total}}</span><input [ngClass]="{'input-visible' : !project.isvisible}" id="total" name="total" [(ngModel)]="project.total" type="number"></td>
+  <td><span [ngClass]="{'txt-visible' : project.isvisible}">{{project.paid}}</span><input [ngClass]="{'input-visible' : !project.isvisible}" id="paid" name="paid" [(ngModel)]="project.paid" type="checkbox"></td>
+  <td class="xs-hidden"><span [ngClass]="{'txt-visible' : project.isvisible}">{{project.pDate | date}}</span><input [ngClass]="{'input-visible' : !project.isvisible}" id="pDate" name="pDate" [(ngModel)]="project.pDate" type="date"></td>
+  <td><button attr.aria-label="{{!project.isvisible?'Edit':'Save'}} Review payment month {{project.month | date}}" (click)="editPayment(project)" type="button"><i class="fas" [ngClass]="{'fa-edit' : !project.isvisible,'fa-save' : project.isvisible}"></i></button></td>
+</tr>
+
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>
