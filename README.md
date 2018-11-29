@@ -8,12 +8,13 @@ This project is developed using `angular version 6.1.9` and backend server `Dotn
 3. Identity Server , Check this [Link](https://identityserver4.readthedocs.io/en/release/)
 
 ## Development server
+1. Download the [Web API](https://github.com/xakiin6/MentorPayment-WebAPI.git) and the [Auth Server](https://github.com/xakiin6/MentorPayment-AuthServer.git).
 
-1. The Web API uses `json` files to store data so you need to create these two files
+2. The Web API uses `json` files to store data so you need to create these two files
       `c:/datafiles/class.json`
       `c:/datafiles/review.json`
 
-2. Run `npm start` will start the web client and both the `API` and the `Identity Server`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+3. Run `npm start` will start the web client and both the `API` and the `Identity Server`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
 
