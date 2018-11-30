@@ -13,8 +13,10 @@ This project is developed using `angular version 6.1.9` and backend server `Dotn
 2. The Web API uses `json` files to store data so you need to create these two files
       `c:/datafiles/class.json`
       `c:/datafiles/review.json`
+      
+3. Run `npm install` to install all client dependancies.
 
-3. Run `npm start` will start the web client and both the `API` and the `Identity Server`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+4. Run `npm start` will start the web client and both the `API` and the `Identity Server`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
 
